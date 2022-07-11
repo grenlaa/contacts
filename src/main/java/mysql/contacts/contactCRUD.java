@@ -56,8 +56,8 @@ public class contactCRUD {
                     if (resultSet.next()) {
                         int contid = resultSet.getInt(1);
                         String FIO = resultSet.getString(2);
-                        String address = resultSet.getString(3);
                         String number = resultSet.getString(4);
+                        String address = resultSet.getString(3);
                         contact = new contactModel(contid, FIO, address, number);
                     }
                 }
