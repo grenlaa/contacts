@@ -27,14 +27,16 @@
         </div>
 
         <div class="container" >
-            <div style="width:40%;">
+            <div style="width:40%; float: left">
                 <table id="users">
                     <tr><td>Id</td><td>Имя</td><td>Адрес</td><td>Номер</td><tr>
                 </table>
             </div>
-            <div style="width:40%; left:50%; " >
+            <div style="width:40%; left:50%;  float: left" >
+                
                 <form method="post" id="edit1">
                 </form>
+                
                 <form method="post" id="createF">
                 </form>
             </div>
@@ -55,10 +57,10 @@
                 $("#editBtn").click(function () {
                     $.getJSON('http://localhost:8084/contacts/edit?id=' + document.getElementById('add_id_user').value, function (data) {
                         $('#edit1').html(
-                                '<input type="id" id="id-edit" value="' + data.id + '"/>' +
-                                '<input type="text" id="FIO-edit"  value="' + data.FIO + '"/>' +
-                                '<input type="text" id="address-edit"  value="' + data.address + '"/>' +
-                                '<input type="text" id="number-edit"  value="' + data.number + '"/>' +
+                                '<label for="fname">Изменение</label><br><label for="fname">id</label><br><input type="id" id="id-edit" value="' + data.id + '"/><br>' +
+                                '<label for="fname">ФИО</label><br><input type="text" id="FIO-edit"  value="' + data.FIO + '"/><br>' +
+                                '<label for="fname">Адрес</label><br><input type="text" id="address-edit"  value="' + data.address + '"/><br>' +
+                                '<label for="fname">Номер</label><br><input type="text" id="number-edit"  value="' + data.number + '"/><br>' +
                                 '<button type="submit">Изменить</button>');
                     });
                 });
@@ -74,10 +76,10 @@
             });
             $("#create").click(function () {
                 $('#createF').html(
-                        '<input type="text" id="FIO-edit"  />' +
-                        '<input type="text" id="address-edit" />' +
-                        '<input type="text" id="number-edit"/>' +
-                        '<button type="submit">Добавить</button>');
+                        '<label for="fname">Создание</label><br><label for="fname">ФИО</label><br><input type="text" id="FIO-edit"  /><br>' +
+                        '<label for="fname">Адрес</label><br><input type="text" id="address-edit" /><br>' +
+                        '<label for="fname">Номер</label><br><input type="text" id="number-edit"/><br>' +
+                        '<label for="fname">id</label><br><button type="submit">Добавить</button><br>');
 
             });
             $("#createF").submit(function (event) {
