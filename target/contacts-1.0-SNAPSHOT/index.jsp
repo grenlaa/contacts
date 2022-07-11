@@ -29,7 +29,7 @@
         <div class="container" >
             <div style="width:40%; float: left">
                 <table id="users">
-                    <tr><td>Id</td><td>Имя</td><td>Адрес</td><td>Номер</td><tr>
+                    
                 </table>
             </div>
             <div style="width:40%; left:50%;  float: left" >
@@ -42,7 +42,7 @@
             </div>
         </div>
         <script type="text/javascript">
-            $(function () {
+            
                 $("#btn1").click(function () {
                     $.getJSON('http://localhost:8084/contacts/list', function (data) {
                         $('#users').html("<tr><td>Id</td><td>Имя</td><td>Адрес</td><td>Номер</td><tr>");
@@ -52,8 +52,8 @@
                         }
                     });
                 });
-            });
-            $(function () {
+          
+            
                 $("#editBtn").click(function () {
                     $.getJSON('http://localhost:8084/contacts/edit?id=' + document.getElementById('add_id_user').value, function (data) {
                         $('#edit1').html(
@@ -64,7 +64,7 @@
                                 '<button type="submit">Изменить</button>');
                     });
                 });
-            });
+            
             $("#edit1").submit(function (event) {
                 // Предотвращаем обычную отправку формы
                 event.preventDefault();
@@ -95,8 +95,7 @@
                 $('#createF').html("");
                 $('#edit1').html("");
                 $('#users').html("");
-
-
+                list();
             });
             $("#delete").click(function () {
                 $.post('http://localhost:8084/contacts/delete', {'id': $('#delete_id_user').val()}, function (data) {
